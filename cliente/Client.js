@@ -6,8 +6,8 @@ const readline = require('readline').createInterface({
 })
 
 const port = 7000
-const host ="192.168.0.5"
-//const host = "192.168.89.91"
+
+const host = "192.168.89.91"
 const client = new Socket() 
 
 client.connect(port, host)

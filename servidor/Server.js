@@ -4,8 +4,8 @@ var colors = require('colors');
 const server = net.createServer()
 
 const port = 7000
-const host ="192.168.0.5"
-//const host = "192.168.89.91"
+
+const host = "192.168.89.91"
 
 const users = []
 const nombres = new Array();
@@ -48,7 +48,6 @@ server.on('connection', (client) => {
         }
     })
 
-
     client.on('error', (err) => {
         if (err.errno == -4077) {
             users.map((un_usuario) => {
@@ -67,7 +66,7 @@ server.on('connection', (client) => {
     })
 
 
-    //client.setTimeout(10000)
+    client.setTimeout(10000)
     client.on('timeout', () => {
     console.log(client.remoteAddress+' usuario desconectado por inactividad'.yellow);
     client.end();
@@ -75,7 +74,7 @@ server.on('connection', (client) => {
 
 })
 
-/*evitamos que el programa crashee*/
+
 server.on('error', (err) => {
     console.log(err)
 })
